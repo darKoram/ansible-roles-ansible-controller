@@ -1,0 +1,42 @@
+---
+# defaults file for ansible_controller
+
+# Install ansible extensions for Sublime Text Editor
+ansible_controller_sublime: no
+sublime_text_version: 3
+
+ansible_controller_apt_packages: 
+  - rubygems-integration
+  - docker
+
+ansible_controller_pip_packages:
+  - docker-py
+
+ansible_controller_gems:
+  - librarian-ansible
+
+# ansible_controller_node_packages:
+#   -  
+
+
+ansible_grok_git_url: "https://github.com/yetu/ansible-logstash/blob/master/files/ansible.grok"
+
+########################
+# geerlingguy.homebrew vars
+########################
+homebrew_installed_packages:
+  - ssh-copy-id
+  - pv
+  - boot2docker
+  - docker
+
+homebrew_upgrade_all_packages: no
+
+homebrew_taps:
+  - caskroom/cask
+
+homebrew_cask_apps:
+  - virtualbox
+  - vagrant
+  - vagrant-manager
+
