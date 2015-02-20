@@ -1,9 +1,29 @@
 ---
 # tasks file for ansible_controller
 
+- name: Ensure we have needed directories
+  file: state=directory
+        dest={{ansible_controller_downloads}}
+
 - name: Install apt packages
   apt: name={{item}}
   with_items: _ansible_controller_apt_packages
+  when: ansible_os_family == "Debian"
+
+- name: Install brew packages
+  homebrew: name={{item}}
+  with_items: homebrew_installed_packages
+  when: ansible_os_family == "Darwin"
+
+- name: Install docker repos
+  copy: src=initialize_docker_repos.sh
+        dest={{ansible_controller_downloads}}/initialize_docker_repos.sh
+        mode=0755
+
+- name: Run initialize_docker_repos.sh
+  command: /bin/bash "{{ansible_controller_downloads}}/initialize_docker_repos.sh"
+
+- include: sublime.yml
 
 # Would like to use ansible-galaxy and meta instead
 # but following docs for branch pinning did not work
@@ -13,3 +33,8 @@
 - name: Install ansible_controller gems 
   gem: name=librarian-ansible
 
+#- include: logging.yml     
+
+             
+           
+                                 

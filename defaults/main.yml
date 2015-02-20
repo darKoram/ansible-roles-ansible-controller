@@ -2,7 +2,8 @@
 # defaults file for ansible_controller
 
 # Install ansible extensions for Sublime Text Editor
-ansible_controller_sublime: no
+
+ansible_controller_sublime: yes
 sublime_text_version: 3
 
 ansible_controller_apt_packages: 
@@ -15,20 +16,27 @@ ansible_controller_pip_packages:
 ansible_controller_gems:
   - librarian-ansible
 
-# ansible_controller_node_packages:
-#   -  
+###############################
+# SUBLIME
+############################### 
+ansible_controller_sublime_packages_dir: "{{lookup('env', 'HOME')}}/Library/Application Support/Sublime Text 3/Packages/"
+ansible_controller_sublime_md_plugin: "https://github.com/timonwong/OmniMarkupPreviewer.git"
+ansible_controller_osx_for_hackers_gist_url: https://gist.github.com/3195465.git
 
+ansible_controller_downloads: /tmp/ansible
 
 ansible_grok_git_url: "https://github.com/yetu/ansible-logstash/blob/master/files/ansible.grok"
 
-########################
+############################
 # geerlingguy.homebrew vars
-########################
+############################
 homebrew_installed_packages:
   - ssh-copy-id
   - pv
   - boot2docker
   - docker
+  - meld
+#  - homebrew/x11/meld
 
 homebrew_upgrade_all_packages: no
 
@@ -36,7 +44,14 @@ homebrew_taps:
   - caskroom/cask
 
 homebrew_cask_apps:
-  - virtualbox
-  - vagrant
-  - vagrant-manager
-
+ - virtualbox
+ - vagrant
+ - vagrant-manager
+ - google-chrome
+ - firefox
+ - skype
+ - slack
+ - atom
+ - pycharm
+ - intellij
+ - sublime-text3

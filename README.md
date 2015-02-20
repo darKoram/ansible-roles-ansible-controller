@@ -48,6 +48,8 @@ ansible_controller_pip_packages: python packages for OSX or Debian/Ubuntu
 ansible_controller_gems: ruby packages
 
 Control the type of ansible installation:
+You may wish to have multiple installations and
+switch between them as needed.
 ansible_controller_from_pip: True
 ansible_controller_from_apt: False
 ansible_controller_from_homebrew: False
@@ -56,7 +58,8 @@ ansible_controller_from_git_source: False
 Dependencies
 ------------
 
-All of these can be switched off. 
+OSX
+geerlingguy.homebrew
 
 
 Example Playbook for Use Case II

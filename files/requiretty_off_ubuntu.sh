@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# Need to disable requiretty to allow pipelining in
+# {{ansible_managed}}
+
+# Need to disable requiretty to allow pipelining in 
 # .ansible.cfg to make ssh faster
 
 # https://github.com/cloudify-cosmo/cloudify-manager/blob/master/plugins/agent-installer/worker_installer/tests/Ubuntu-disable-require-tty.sh

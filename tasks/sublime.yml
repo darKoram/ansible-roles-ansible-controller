@@ -1,0 +1,5 @@
+# sublime.yml
+
+
+- name: Run sublime_ansible_tab_completion.py
+  shell: python files/sublime_ansible_tab_completion.py
