@@ -1,5 +1,7 @@
 # sublime.yml
 
+# Order of precedence
+# http://sublimetext.info/docs/en/extensibility/packages.html#merging-and-order-of-preference
 
 - name: Run sublime_ansible_tab_completion.py
   shell: python files/sublime_ansible_tab_completion.py
