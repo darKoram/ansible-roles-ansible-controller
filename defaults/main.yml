@@ -35,7 +35,8 @@ homebrew_installed_packages:
   - pv
   - boot2docker
   - docker
-  - meld
+# brew install meld - not found.  I must've tapped something
+#  - meld
 #  - homebrew/x11/meld
 
 homebrew_upgrade_all_packages: no
@@ -54,4 +55,13 @@ homebrew_cask_apps:
  - atom
  - pycharm
  - intellij
- - sublime-text3
+ - sublime-text
+
+# Temporary.  Move to separate sublime role
+sublime3_extra_packages:
+ - name: SublimeLinter3
+   url: "https://github.com/SublimeLinter/SublimeLinter3.git"
+sublime2_extra_packages:
+ - name: SublimeLinter2
+   url: "https://github.com/SublimeLinter/SublimeLinter2.git"
+
