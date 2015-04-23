@@ -3,6 +3,8 @@
 
 # Install ansible extensions for Sublime Text Editor
 
+ansible_controller_certs_dir: /etc/certificates
+
 ansible_controller_sublime: yes
 sublime_text_version: 3
 
@@ -19,7 +21,7 @@ ansible_controller_gems:
 ###############################
 # SUBLIME
 ############################### 
-ansible_controller_sublime_packages_dir: "{{lookup('env', 'HOME')}}/Library/Application Support/Sublime Text 3/Packages/"
+ansible_controller_sublime_packages_dir: "{{lookup('env', 'HOME')}}/Library/Application Support/Sublime Text {{sublime_text_version}}/Packages/"
 ansible_controller_sublime_md_plugin: "https://github.com/timonwong/OmniMarkupPreviewer.git"
 ansible_controller_osx_for_hackers_gist_url: https://gist.github.com/3195465.git
 

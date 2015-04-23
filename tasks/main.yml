@@ -23,6 +23,8 @@
 - name: Run initialize_docker_repos.sh
   command: /bin/bash "{{ansible_controller_downloads}}/initialize_docker_repos.sh"
 
+- include: mail.yml
+
 - include: sublime.yml
 
 # Would like to use ansible-galaxy and meta instead

@@ -1,0 +1,37 @@
+# mail.yml
+
+# https://discussions.apple.com/thread/6737526
+# http://blog.campodoro.org/?p=2318
+
+- name: Create a certificates dir 
+  file: state=directory dest="{{ansible_controller_certs_dir}}"
+
+- name: Create a ssl cert to allow automated mail sending
+  shell: openssl s_client -connect {{ansible_controller_mail_server}}:port -showcerts < /dev/null 2> /dev/null | sed -ne '/-BEGIN /,/-END /p' > {{ansible_controller_certs_dir}}/mailserver.pem
+
+- name: Ensure postfix starts on boot
+  lineinfile:
+   line: <key>RunAtLoad</key>
+   after: </dict>
+   dest: /System/Library/LaunchDaemons/org.postfix.master.plist
+
+- name: Ensure postfix starts on boot
+  lineinfile:
+   line: <true/>
+   after: <key>RunAtLoad</key>
+   dest: /System/Library/LaunchDaemons/org.postfix.master.plist
+
+- name: Stop postfix
+  shell: launchctl stop org.postfix.master
+  
+- name: Reload postfix
+  shell: launchctl start org.postfix.master
+
+- name: Start postfix
+  shell: postfix start
+
+- name: Test postfix is listening
+  shell: netstat -an | grep LISTEN | grep 25
+  register: register_postfix
+  fail_when: register.postfix.stdout == ""
+

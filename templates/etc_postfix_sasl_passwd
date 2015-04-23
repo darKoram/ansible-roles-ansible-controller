@@ -1,0 +1,3 @@
+# etc_postfix_sasl_passwd
+
+[smtp.gmail.com]:587 "{{ansible_controller_user}}@cognitivescale.com:{{ansible_controller_pass}}"

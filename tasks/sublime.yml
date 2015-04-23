@@ -5,3 +5,18 @@
 
 - name: Run sublime_ansible_tab_completion.py
   shell: python files/sublime_ansible_tab_completion.py
+
+- name: Create a CogScale sublimetext customization folder
+  file: 
+   state: directory
+   dest: "{{ansible_controller_sublime_packages_dir}}/CogScale"
+
+- name: Copy AutoComplete.py to cogscale customization folder
+  copy:
+   src: AutoComplete.py
+   dest: "{{ansible_controller_sublime_packages_dir}}/CogScale"
+
+- name: Copy AutoComplete.py to user customization folder
+  copy:
+   src: Universal.tmLanguage
+   dest: "{{ansible_controller_sublime_packages_dir}}/User"
